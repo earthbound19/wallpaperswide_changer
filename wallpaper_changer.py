@@ -51,7 +51,7 @@ def download_image(img_full_url):
     soup = BeautifulSoup(html_code)
     for link in soup.find_all(id="wallpaper-resolutions"):
         for downloadable_link in link.find_all('a'):
-            if "3840x1080" in downloadable_link.get('href'):
+            if resolution in downloadable_link.get('href'):
                 full_image_url = urllib2.urlopen(website +
                                                 downloadable_link.get('href'))
                 output = full_image_url.read()
